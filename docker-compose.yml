@@ -12,8 +12,19 @@ services:
       - SPRING_DATASOURCE_PASSWORD=
       - SPRING_H2_CONSOLE_ENABLED=true
       - SPRING_H2_CONSOLE_SETTINGS_WEB_ALLOW_OTHERS=true
+      - SERVER_FORWARD_HEADERS_STRATEGY=NATIVE
+      - SERVER_USE_FORWARD_HEADERS=true
+    env_file:
+      - .env
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health || exit 1"]
       interval: 30s
       timeout: 10s
-      retries: 5 
+      retries: 5
+      start_period: 60s
+    networks:
+      - symptom-network
+
+networks:
+  symptom-network:
+    driver: bridge 

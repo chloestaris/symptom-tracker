@@ -13,7 +13,6 @@ public class Medication {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @NotNull
     private User user;
 
     @NotNull

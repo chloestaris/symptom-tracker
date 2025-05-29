@@ -4,6 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Environment Files ###
+.env
+*.env
+
 ### STS ###
 .apt_generated
 .classpath
@@ -50,10 +54,8 @@ logs/
 .DS_Store
 
 ### Java ###
-# Compiled class file
 *.class
-
-# Package Files #
+*.log
 *.jar
 *.war
 *.nar
@@ -61,6 +63,24 @@ logs/
 *.zip
 *.tar.gz
 *.rar
+
+### Database ###
+*.db
+data/
+*.h2.db
+*.trace.db
+*.lock.db
+
+### Docker ###
+.docker/
+docker-compose.override.yml
+
+### Logs ###
+logs/
+*.log
+
+### Mac OS ###
+.DS_Store
 
 # virtual machine crash logs
 hs_err_pid*
